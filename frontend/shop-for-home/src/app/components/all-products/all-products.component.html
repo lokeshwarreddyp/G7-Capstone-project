@@ -1,0 +1,22 @@
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let tempProduct of products">
+    <div class="card text-center">
+      <div class="card-body border">
+        <a routerLink="/products/{{ tempProduct.id }}">
+          <img style="width: 100% ;height: 300px ;" src="{{ tempProduct.imageUrl }}">
+        </a>
+        <a class="font-weight-bold" routerLink="/products/{{ tempProduct.id }}">
+          {{ tempProduct.name}}
+        </a>
+
+        <p class="card-text mb-1">{{ tempProduct.unitPrice | currency:'USD' }}</p>
+        <p style="margin-top: 20px;"><a routerLink="/update-product/{{tempProduct.id}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit Product</a>
+        <a (click)="deleteProduct(tempProduct)" class="btn btn-danger btn-sm" style="margin-left: 20px;"><i class="fa fa-trash" aria-hidden="true"></i> Delete Product</a></p>
+
+      </div>
+    </div>
+  </div>
+  <div *ngIf="products.length == 0" class="alert alert-warning col-md-12" role="alert">
+    No products found.
+  </div>
+</div>

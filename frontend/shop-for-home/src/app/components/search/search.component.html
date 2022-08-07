@@ -1,0 +1,7 @@
+<nav class="navbar">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" size="30" type="search" placeholder="Search for products ..."
+      (keyup.enter)="doSearch(myInput.value)" #myInput aria-label="Search">
+    <button class="btn btn-outline-primary my-2 my-sm-0" (click)="doSearch(myInput.value)" type="submit">Search</button>
+  </form>
+</nav>

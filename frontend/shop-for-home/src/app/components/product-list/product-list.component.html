@@ -1,0 +1,47 @@
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let tempProduct of products">
+    <div class="card text-center">
+      <div class="card-body border">
+        <a routerLink="/products/{{ tempProduct.id }}">
+          <img style="width: 100% ;height: 300px ; margin-bottom: 20px;" src="{{ tempProduct.imageUrl }}">
+        </a>
+        <br>
+        <a class="font-weight-bold" routerLink="/products/{{ tempProduct.id }}" >
+          {{ tempProduct.name}}
+        </a>
+
+        <p class="card-text mb-1">{{ tempProduct.unitPrice | currency:'USD' }}</p>
+        <p><button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button></p>
+        <p><button (click)="addToCart(tempProduct)" class="btn btn-danger btn-sm"><i class="fa fa-heart" style="font-size:16px;color:#fff"></i> Wishlist</button></p>
+        
+
+      </div>
+    </div>
+  </div>
+  <div *ngIf="products.length == 0" class="alert alert-warning col-md-12" role="alert">
+    No products found.
+  </div>
+  <!-- <div class="footer-pagination">
+
+
+    <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [collectionSize]="theTotalElements" [maxSize]="5"
+      [boundaryLinks]="true" (pageChange)="listProducts()">
+
+    </ngb-pagination>
+
+  </div> -->
+
+
+  <div class="col-md-3 mt-4" style="text-align: right;">
+    <span class="mr-2" style="padding-top: 200px;">Page Size</span>
+
+    <select (change)="updatePageSize($any($event.target).value)">
+      <option>2</option>
+      <option selected="true">5</option>
+      <option selected="true">10</option>
+      <option>20</option>
+      <option>50</option>
+    </select>
+  </div>
+
+</div>

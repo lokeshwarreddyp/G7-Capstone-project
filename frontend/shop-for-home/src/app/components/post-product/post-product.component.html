@@ -1,0 +1,40 @@
+<h2 class="bg-light mb-2 text-center">Add Product</h2>
+<form (submit)="addNewProduct()" [formGroup]="ProductForm">
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label>Product Name</label>
+      <input type="text" class="form-control" formControlName="name">
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label>Category Id</label>
+      <input type="text" class="form-control" formControlName="id">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label>Description</label>
+      <textarea type="text" class="form-control" formControlName="description" placeholder="Enter Product Description">
+        </textarea>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label>Product Price</label>
+      <input type="text" class="form-control" formControlName="unitPrice">
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label>Product Stock</label>
+      <input type="text" class="form-control" formControlName="unitsInStock">
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label>Product image</label>
+      <input type="text" class="form-control" formControlName="imageUrl">
+    </div>
+
+  </div>
+  <button class="btn btn-primary mb-2" type="submit">Update Product</button>
+</form>
