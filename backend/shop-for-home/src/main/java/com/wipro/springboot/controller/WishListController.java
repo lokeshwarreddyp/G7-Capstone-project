@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
+
 import com.wipro.springboot.entity.Product;
 import com.wipro.springboot.entity.User;
 import com.wipro.springboot.entity.WishList;
@@ -43,9 +46,13 @@ public class WishListController {
 		Page<WishList> wishListPage;
 		User user = userService.findOne(principal.getName());
 		wishListPage = wishListService.findByBuyerEmail(user.getId(), request);
+		// Added a comment just
 		return wishListPage;
 	}
-
+	public void print(){
+		System.out.println("hi");
+	}
+	
 	@PostMapping("/add/{productId}")
 	public ResponseEntity<WishList> addWishList(@PathVariable String productId, Principal principal) {
 		Product product = productService.findOne(productId);
